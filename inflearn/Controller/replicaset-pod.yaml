@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-1
+  labels:
+    type: web
+spec:
+  containers:
+  - name: con-1
+    image: tmkube/app:v1
+  terminationGracePeriodSeconds: 0
+  
+
+  
