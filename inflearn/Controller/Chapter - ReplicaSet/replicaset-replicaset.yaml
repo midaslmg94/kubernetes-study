@@ -15,5 +15,5 @@ spec:
     spec:
       containers:
       - name: con-1
-        image: tmkube/app:v1
+        image: tmkube/app:v2
       terminationGracePeriodSeconds: 0
