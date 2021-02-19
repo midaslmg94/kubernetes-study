@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-02
+spec:
+  selector:
+    matchLabels:
+      type: app
+  template:
+    metadata: 
+      labels:
+        type: app
+    spec:
+      nodeSelector: # node의 태그 중 os: centos인 node에만 생성
+        os: centos
+      containers:
+        - name: con-02
+          image: tmkube/app:v1
+          ports:
+            - containerPort: 8080
