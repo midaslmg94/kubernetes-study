@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-01
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: con-01
+          image: tmkube/init
+          command: ["sh", "-c", "echo 'job start'; sleep 10; echo 'job end'"]

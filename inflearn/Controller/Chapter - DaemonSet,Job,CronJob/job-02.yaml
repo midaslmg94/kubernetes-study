@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-02
+spec:
+  completions: 6
+  parallelism: 2
+  activeDeadlineSeconds: 30
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: con-03
+          image: tmkube/init
+          command:
+            ["sh", "-c", "echo 'job start'; sleep 20; echo 'job end'"]
+          
+
+    
