@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-02
+spec:
+  selector:
+    matchLabels:
+      type: app
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        type: app
+    spec:
+      containers:
+        - name: con-02
+          image: tmkube/app:v2
+      terminationGracePeriodSeconds: 10
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-02
+spec:
+  type: LoadBalancer
+  selector:
+    type: app
+  ports:
+    - port: 8090
+      protocol: TCP
+      targetPort: 8080
