@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-liveness
+  labels:
+    app: liveness
+spec:
+  containers:
+    - name: con-liveness
+      image: kubetm/app
+      ports:
+        - containerPort: 8080
